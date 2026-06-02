@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="public/logo.png" alt="UniConnect Logo" width="100"/>
   <h1>UniConnect</h1>
   <p><strong>A private, institution-locked campus networking & social platform.</strong></p>
   
