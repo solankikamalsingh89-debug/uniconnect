@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0f;
+  --foreground: #f0f0f5;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.glass-panel {
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.neon-border-cyan {
+  border: 1px solid hsl(180, 100%, 50%);
+  box-shadow: 0 0 5px hsl(180, 100%, 50%);
+}
+
+.neon-border-purple {
+  border: 1px solid hsl(280, 100%, 65%);
+  box-shadow: 0 0 5px hsl(280, 100%, 65%);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 8px hsl(180, 100%, 50%, 0.8);
+}
