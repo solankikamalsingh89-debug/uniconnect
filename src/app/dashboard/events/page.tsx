@@ -135,7 +135,7 @@ export default function EventsPage() {
                         className={`p-4 rounded-xl border transition-all cursor-pointer ${config.border} hover:bg-gray-800/60`}
                       >
                         <h3 className="font-bold text-white text-sm">{event.title}</h3>
-                        <p className="text-xs text-gray-400 mt-1.5 line-clamp-2">{event.description}</p>
+                        <p className="text-xs text-gray-400 mt-1.5 whitespace-pre-wrap">{event.description}</p>
                         <div className="flex items-center justify-between mt-3">
                           <p className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">
                             {new Date(event.event_date).toLocaleDateString('en-US', {
