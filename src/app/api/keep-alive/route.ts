@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
+// Force dynamic rendering — this route uses cookies and must not be statically cached
+export const dynamic = 'force-dynamic';
+
+
 export async function GET() {
   try {
     const supabase = createClient();

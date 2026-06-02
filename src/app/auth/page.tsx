@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { parseIIITNREmail } from '@/lib/identity-parser';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function AuthPage() {
+// Inner component — uses useSearchParams so must be inside Suspense
+function AuthForm() {
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -275,5 +276,18 @@ export default function AuthPage() {
         </p>
       </motion.div>
     </main>
+  );
+}
+
+// Default export wraps in Suspense to satisfy Next.js static build requirements
+export default function AuthPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen flex items-center justify-center bg-background">
+        <div className="w-8 h-8 border-2 border-neonCyan border-t-transparent rounded-full animate-spin" />
+      </main>
+    }>
+      <AuthForm />
+    </Suspense>
   );
 }

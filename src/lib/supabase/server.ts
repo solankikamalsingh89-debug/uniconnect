@@ -7,7 +7,6 @@ export function createClient() {
 
   if (!url || !key || url === 'your_supabase_url_here') {
     console.warn('[UniConnect] Supabase not configured. Set env vars in .env.local');
-    // Return a minimal client that won't crash but won't work either
     return createServerClient(
       'https://placeholder.supabase.co',
       'placeholder-key',
@@ -22,10 +21,10 @@ export function createClient() {
       getAll() {
         return cookieStore.getAll();
       },
-      setAll(cookiesToSet) {
+      setAll(cookiesToSet: { name: string; value: string; options?: Record<string, unknown> }[]) {
         try {
           cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options)
+            cookieStore.set(name, value, options as Parameters<typeof cookieStore.set>[2])
           );
         } catch {
           // Called from Server Component — ignored when middleware handles sessions
