@@ -167,15 +167,29 @@ function ReelCard({ post, onLike, onComment }: {
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
+    
+    // We use a small timeout to let the YouTube API initialize before sending commands
     const obs = new IntersectionObserver(([entry]) => {
       if (isDirectVideo) {
-        if (entry.isIntersecting) videoRef.current?.play().then(() => setIsPlaying(true)).catch(() => {});
-        else { videoRef.current?.pause(); setIsPlaying(false); }
-      } else if (youtubeId && !entry.isIntersecting) {
-        ytCmd('pauseVideo');
-        setIsPlaying(false);
+        if (entry.isIntersecting) {
+          videoRef.current?.play().then(() => setIsPlaying(true)).catch(() => {});
+        } else {
+          videoRef.current?.pause(); 
+          setIsPlaying(false);
+        }
+      } else if (youtubeId) {
+        if (entry.isIntersecting) {
+          // Play when visible
+          setTimeout(() => ytCmd('playVideo'), 500);
+          setIsPlaying(true);
+        } else {
+          // Pause when not visible
+          setTimeout(() => ytCmd('pauseVideo'), 500);
+          setIsPlaying(false);
+        }
       }
-    }, { threshold: 0.55 });
+    }, { threshold: 0.6 });
+    
     obs.observe(el);
     return () => obs.disconnect();
   }, [isDirectVideo, youtubeId, ytCmd]);
@@ -213,7 +227,7 @@ function ReelCard({ post, onLike, onComment }: {
           <iframe
             ref={iframeRef}
             className="absolute inset-0 w-full h-full pointer-events-none"
-            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=0&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
+            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=0&mute=0&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0`}
             allow="autoplay; fullscreen"
             allowFullScreen
             title="Reel"

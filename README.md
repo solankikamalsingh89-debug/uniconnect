@@ -9,7 +9,7 @@
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
   
   <br />
-  <a href="#live-demo">View Demo</a> · <a href="#features">Explore Features</a> · <a href="#setup">Installation</a>
+  <a href="https://uniconnect-eight.vercel.app/" target="_blank"><strong>🌐 View Live Deployment</strong></a> • <a href="#features">Explore Features</a> • <a href="#setup">Installation</a>
 </div>
 
 <br />
@@ -22,7 +22,7 @@
 
 | Landing & Auth | The Feed (Reels) | User Profile |
 |:---:|:---:|:---:|
-| ![Landing Page Placeholder](https://via.placeholder.com/400x800/050508/00FFFF?text=Landing+Page) | ![Feed Placeholder](https://via.placeholder.com/400x800/050508/9B59B6?text=Video+Feed) | ![Profile Placeholder](https://via.placeholder.com/400x800/050508/FFFFFF?text=User+Profile) |
+| ![Landing Page](public/landing.png) | ![Feed](public/feed.png) | ![Profile](public/profile.png) |
 
 *(Replace the placeholder URLs above with actual screenshots of your deployed app!)*
 
