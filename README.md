@@ -20,11 +20,15 @@
 
 ## 📸 Screenshots
 
+### Core Application
 | Landing & Auth | The Feed (Reels) | User Profile |
 |:---:|:---:|:---:|
 | ![Landing Page](public/landing.png) | ![Feed](public/feed.png) | ![Profile](public/profile.png) |
 
-*(Replace the placeholder URLs above with actual screenshots of your deployed app!)*
+### Social & Campus Life
+| Direct Messaging & Groups | Campus Events |
+|:---:|:---:|
+| ![Chats](public/chats.png) | ![Events](public/events.png) |
 
 ---
 
@@ -92,7 +96,7 @@ If you'd like to run this project locally:
 
 ## 🤝 Contributing & Future Roadmap
 - [ ] Implement AI-driven content moderation for the feed.
-- [ ] Add direct 1-on-1 messaging (currently supports groups).
+- [x] Add direct 1-on-1 messaging (currently supports groups).
 - [ ] Integrate full n8n automation for scraping college notices into the DB.
 
 ## 📄 License
